@@ -1,14 +1,18 @@
 /**
  * Description: This program describes the rules of Bingo, and provides an example of a Bingo card.
- * Date: September 24, 2024
+ * Date: September 25, 2024
  * @author Myra Huynh
  */
 package unit1;
 
 public class Bingo {
+	/**
+	 * This is the entry point to the program
+	 * @param args unused
+	 */
 
 	public static void main(String[] args) {
-		// This statement explains the rules of Bingo
+		// These statements explain the rules of Bingo
 		System.out.println("How to Play Bingo!");
 		System.out.println("1. The caller randomly pulls a numbered bingo ball.");
 		System.out.println("2. The number is placed on the bingo board and called out.");
