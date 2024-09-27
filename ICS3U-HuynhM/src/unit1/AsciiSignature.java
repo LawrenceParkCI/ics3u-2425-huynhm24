@@ -6,6 +6,10 @@
 package unit1;
 
 public class AsciiSignature {
+	/**
+	 * This is the entry point to the program
+	 * @param args unused
+	 */
 
 	public static void main(String[] args) {
 		// This prints my name in ASCII cursive
@@ -29,7 +33,7 @@ public class AsciiSignature {
 		System.out.println(" === === ===  =====  =======  ========      ======== ===  ===  =====  ======== ========");
 		System.out.println(" ===     ===   ===   === ===  ===  ===      ===  === ===  ===   ===   === ==== ===  ===");
 		System.out.println(" ===     ===   ===   ===  === ===  ===      ===  ===  ======    ===   ===  === ===  ===");
-		// This prints a photo of a chocolate bar
+		// This prints a chocolate bar
 		System.out.println("\n    __________________,.............,");
 		System.out.println("   /_/_/_/_/_/_/_/_/,-',  ,. -,-,--/|");
 		System.out.println("  /_/_/_/_/_/_/_/,-' //  /-| / /--/ /");
