@@ -5,6 +5,10 @@ package unit1;
  * @author Myra Huynh
  */
 public class HelloWorld {
+	/**
+	 * This is the entry point to the program
+	 * @param args unused
+	 */
 
 	public static void main(String[] args) {
 		// This prints hello to the system console
