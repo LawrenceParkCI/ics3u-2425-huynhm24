@@ -1,14 +1,18 @@
 package unit1;
 /**
  * Description: This program prints information about the author <br>
- * Date: September 20, 2024
+ * Date: September 21, 2024
  * @author Myra Huynh
  */
 
 public class AboutMe {
+	/**
+	 * This is the entry point to the program
+	 * @param args unused
+	 */
 
 	public static void main(String[] args) {
-		// This statement says my name, grade, teacher and school
+		// This prints my name, grade, teacher and school
 		System.out.println("My name is Myra Huynh.");
 		System.out.println("I am in Grade 11.");
 		System.out.println("My teacher is Ms. Kemp.");
