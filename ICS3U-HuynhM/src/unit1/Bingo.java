@@ -1,9 +1,10 @@
+package unit1;
 /**
  * Description: This program describes the rules of Bingo, and provides an example of a Bingo card.
  * Date: September 25, 2024
  * @author Myra Huynh
  */
-package unit1;
+
 
 public class Bingo {
 	/**
