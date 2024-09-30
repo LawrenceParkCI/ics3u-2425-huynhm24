@@ -1,9 +1,9 @@
+package unit1;
 /**
  * Description: This program prints the author's name and a picture in ASCII style. 
  * Date: September 26, 2024
  * @author Myra Huynh
  */
-package unit1;
 
 public class AsciiSignature {
 	/**
