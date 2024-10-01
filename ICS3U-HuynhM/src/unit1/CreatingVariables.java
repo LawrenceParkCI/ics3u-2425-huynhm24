@@ -34,7 +34,7 @@ public class CreatingVariables {
 
 		*/
 
-		System.out.println("Part 1");
+		System.out.println("\nPart 1");
 		//what do you notice is being printed out?
 
 		int myNum;
@@ -45,6 +45,7 @@ public class CreatingVariables {
 		myNum = 20;
 		System.out.println("myNum is now " + myNum);
 		//Why do the two codes print out different things?
+		//The codes print different things because the variable got assigned a new value
 
 
 		System.out.println("Part 2 - Creating a Variable");
@@ -68,13 +69,17 @@ public class CreatingVariables {
 		*/
 
 		//Declare and initialize an int variable called myAge that stores your age.
+		int myAge = 16;
 
 
 		//Print it out in a sentence (Hint: remember how we combined text and numbers in a print statement)
+		System.out.println("I am " + myAge + " years old.");
 
 		//Assign it a new value, that is 10 more than the original value
+		myAge = 26;
 
 		//Print it out in a new sentence (Hint: remember how we combined text and numbers in a print statement)
+		System.out.println("myAge is now " + myAge);
 
 
 
