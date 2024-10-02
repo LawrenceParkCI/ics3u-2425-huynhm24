@@ -72,6 +72,7 @@ public class MathOperators {
      //Print the following expression: 3 + 2 * 5
      System.out.println(3 + 2 * 5);
      //Was this expected? Why or why not?
+    
      // This was expected because the system follows the rules of BEDMAS, so brackets change the order of operations
      
      /*
@@ -80,14 +81,21 @@ public class MathOperators {
         
         Print out, using a print and a println statement, what 900 Fahrenheit is in Celsius
      */     
-     
+     int degreesCelsius = 45;
+     int degreesFarenheit = degreesCelsius * 9/5 + 32;
+     System.out.println("45 degrees celsius in farenheit is " + degreesFarenheit);
+     degreesFarenheit = 900; 
+     degreesCelsius = (degreesFarenheit - 32) * 5/9;
+     System.out.println("900 degrees farenheit in celsius is " + degreesCelsius);		 
+   
      /*
         Part 3
         Figure out what is the meaning of % as a math operator. Use print statements
         to check your answer.
      */
-     
-     //I think % means: 
+     System.out.println(8%3);
+     System.out.println(15%2);
+     //I think % means: The remainder of the division operations
 
 	}
 
