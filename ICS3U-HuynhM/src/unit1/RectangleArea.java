@@ -18,19 +18,33 @@ public class RectangleArea {
 		int length, width, depth;
 		
 		//get the user input
-		System.out.println("VOLUME PROGRAM");
+		System.out.println("AREA PROGRAM");
+		
 		System.out.println("Type in the length of the rectangle and <Enter>: ");
 		length = sc.nextInt();
 		
 		System.out.println("Type in the width of the recatngle and <Enter>:");
 		width = sc.nextInt();
 		
+		System.out.println("Type in the depth of the rectangular prism and <Enter>");
+		depth = sc.nextInt();
+		
 		//Calculate the area
 		int area = length * width; 
 		
 		//Print out the output
-		System.out.println("The area of your rectangle is " + area);
+		System.out.println("The area of your rectangle is " + area + ".");
 		sc.close();
+		
+		
+		//Calculate the volume
+		int volume = length * width * depth;
+		
+		//Print out the output
+		System.out.println("The volume of your rectanglular prism is " + volume + "." );
+		
+		sc.close();
+		
 
 	}
 
