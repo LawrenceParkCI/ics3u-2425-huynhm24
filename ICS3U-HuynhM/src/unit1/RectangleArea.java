@@ -17,7 +17,7 @@ public class RectangleArea {
 		//Declare variables
 		int length, width, depth;
 		
-		//get the user input
+		//Get the user input
 		System.out.println("AREA PROGRAM");
 		
 		System.out.println("Type in the length of the rectangle and <Enter>: ");

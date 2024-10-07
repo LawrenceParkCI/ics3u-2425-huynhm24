@@ -15,7 +15,7 @@ public class NetPay {
 		
 		// Declaring variables
 		int hours = 40;
-		int wage = 5;
+		double wage = 5.00;
 		int insurance = 2;
 		double tax = 0.22;
 		
