@@ -47,16 +47,26 @@ public class Casting3 {
      * "-5"   - works, outputs: -5 x 2 = -10
     */
     //What can you say about how we can use the function, Integer.parseInt()?
-    //Integer.parseInt() can be used to cast a string as an int, but only so long as the string value was already in integer form. 
+    //Integer.parseInt() can be used to cast a string as an int, but only so long as the string value was already in integer form.  
 
     // What do you think the code to change a String to double would look like?
-    String myNum2 = "55.56";
-    double myDouble = Double.parseDouble(myNum2);
-    System.out.println();
+    String strNum2 = "25.2";
+    double myDouble = Double.parseDouble(strNum2);
+    System.out.println(strNum2 + " x 2 = " + (myDouble + myDouble));
     
     //Similarly, test out the code and write down what instructions
-  
+    /*Change strNum to the following values, and see if they work:
+     * "25.2" - works, outputs 25.2 x 2 = 50.4
+     * "23c"  - error
+     * "2 3"  - error
+     * "Lol23"- error
+     * "-5"   - works, outputs: -5 x 2 = -10.0
+    */
+    //What can you say about how we can use the function, Double.parseDouble()?
+    //Dounle.parseDouble() can be used to cast a string as a double, but only so long as the string value was already a real number. 
+
 
     //When do you think it might be necessary to change a string value into an integer value/double value?
+    //This could be helpful when the value of the string variable is predicted to be a string OR an int. For excample, when processing user input, we may not know what they will write.  
   }
 }
