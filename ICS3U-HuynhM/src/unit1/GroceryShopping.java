@@ -31,7 +31,7 @@ public class GroceryShopping {
 		
 		//These are my variables for user input
 		String item1, item2;
-		Double cost1, cost2;
+		double cost1, cost2;
 		int quantity1, quantity2;
 		
 		//Gathering user input on their items
