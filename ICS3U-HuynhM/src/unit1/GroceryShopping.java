@@ -34,7 +34,7 @@ public class GroceryShopping {
 		double cost1, cost2;
 		int quantity1, quantity2;
 		
-		//Gathering user input on their items
+		//Gathering user input on their two items
 		System.out.println("\nWelcome!");
 		System.out.print("What would you like to buy? ");
 		item1 = sc.nextLine();
@@ -91,14 +91,7 @@ public class GroceryShopping {
 		System.out.println("\nHave a good day!");
 		System.out.println("Thank you for shopping at Myra's Grocery!");
 		
-		
-		
-		
-		
-		
-		
-		
-		
+		sc.close();
 		
 
 	}
