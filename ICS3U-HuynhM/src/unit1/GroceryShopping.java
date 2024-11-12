@@ -84,7 +84,7 @@ public class GroceryShopping {
 		
 		//Rounding to the nearest dollar and 5 cents
 		System.out.println("\n\nThis is approximately $" + Math.round(total) + " to the nearest dollar.");
-		double fiveCents = total - (total % 0.05);
+		double fiveCents = Math.round(total / 0.05) * 0.05;
 		System.out.println("This is approximately " + money.format(fiveCents) + " to the nearest 5 cents.");
 		
 		//Concluding the program
