@@ -2,7 +2,7 @@ package unit2;
 import java.util.Scanner;
 
 /**
-* Description:
+* Description: This program outputs text based on sign, divisibility, and ones digit. 
 * Date: November 7, 2024
 * @author Myra Huynh
 */
@@ -43,13 +43,26 @@ public class IfChallenge {
     	System.out.println("You need to look on the bright side.");
     }
     
-    //IF ELSE
+    //IF, ELSE
     if (num % 3 == 0 && num % 2 == 0) {
     	System.out.println("You should really consider thinking about 6. ");
     }
     
     else {
     	System.out.println("You can keep wholesome.");
+    }
+    
+    //IF, ELSE IF, ELSE
+    if(num % 10 == 8) {
+    	System.out.println("I am too full.");
+    }
+    
+    else if(num % 10 == 9) {
+    	System.out.println("Canada is a nice country.");
+    }
+    
+    else {
+    	System.out.println("Don't count on it.");
     }
     
     in.close();
