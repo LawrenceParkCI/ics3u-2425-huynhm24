@@ -3,12 +3,16 @@ package unit2;
 import java.util.Scanner;
 
 /**
- * Description:
+ * Description: This program tests string comparison functions. 
  * Date: November 12, 2024
  * @author Myra Huynh
  */
 
 class StringComparison {
+	/**
+	 * This is the entry point to the program. 
+	 * @param args unused
+	 */
 	public static void main(String[] args) {
 
 		Scanner in = new Scanner(System.in);
