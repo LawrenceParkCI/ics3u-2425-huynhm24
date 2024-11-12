@@ -35,6 +35,25 @@ public class IfChallenge {
     it". 
     */
     
+    //IF
+    System.out.println("What is your favourite number?");
+    double num = in.nextDouble();
+    
+    if (num < 0) {
+    	System.out.println("You need to look on the bright side.");
+    }
+    
+    //IF ELSE
+    if (num % 3 == 0 && num % 2 == 0) {
+    	System.out.println("You should really consider thinking about 6. ");
+    }
+    
+    else {
+    	System.out.println("You can keep wholesome.");
+    }
+    
+    in.close();
+    
 
   }
 }
