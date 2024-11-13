@@ -49,6 +49,7 @@ class StringComparison {
 			System.out.println("Your answer is less than hello");
 		}
 		
+		
 		//Example of equals()
 		if(answer.equals("Toronto")) {
 			System.out.println("You are correct.");
@@ -59,8 +60,16 @@ class StringComparison {
 			System.out.println("You are correct!!!");
 		}
 
+		
+		
+		
+		
+		
+		
+		
 		//What values does compareTo() return? How can we 
 		//interpret the value?
+		
 
 		//what value does equals() and equalsIgnoreCase() return? 
 		//What is the difference between these two functions?
