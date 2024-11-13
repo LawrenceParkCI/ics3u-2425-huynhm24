@@ -56,27 +56,14 @@ class StringComparison {
 		System.out.println(answer.equals("hello"));
 		
 		//Example of equalsIgnoreCase()
-<<<<<<< HEAD
-		if(answer.equalsIgnoreCase("TORONTO")) {
-			System.out.println("You are correct!!!");
-		}
 
 		
-		
-		
-		
-		
-		
-=======
 		System.out.println(answer.equalsIgnoreCase("hello"));
->>>>>>> branch 'main' of https://github.com/LawrenceParkCI/ics3u-2425-huynhm24.git
 		
 		//What values does compareTo() return? How can we 
 		//interpret the value?
 		
-<<<<<<< HEAD
 
-=======
 		/*
 		 * compareTo() returns a number value which can be positive or negative. 
 		 * This value is calculated by the difference between the ascii value of the first letters of the first and second string (in that order)
@@ -84,11 +71,12 @@ class StringComparison {
 		 * If the number returned is 0, the strings are equal
 		 */
 		
->>>>>>> branch 'main' of https://github.com/LawrenceParkCI/ics3u-2425-huynhm24.git
 		//what value does equals() and equalsIgnoreCase() return? 
 		//true or false
 		
 		//What is the difference between these two functions?
 		//Just equals() will compare the two strings including the case of the letters, but equalsIgnoreCase() will compare the two strings without considering the case. 
+		
+		in.close();
 	}
 }

@@ -46,8 +46,7 @@ public class StringChallenge {
 		double money = sc.nextInt();
 		double cost = 3.45; 
 		
-		int num = money / int (cost);
-		
+		sc.close();
 		
 		
 		
