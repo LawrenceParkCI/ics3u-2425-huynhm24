@@ -9,14 +9,18 @@ import java.util.Scanner;
  */
 
 public class IfChallenge2 {
+	/**
+	 * This is the entry point to the program. 
+	 * @param args unused
+	 */
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		//This is for the portfolio
 
 		/*Create a program that asks for three numbers.
-    Tell the user if the numbers are strictly in order.
-    ie.  2 5 11 or 5 6 7 are strictly in order.
-    ie.  6 5 7 or 5 5 7 are not
+    	Tell the user if the numbers are strictly in order.
+    	ie.  2 5 11 or 5 6 7 are strictly in order.
+    	ie.  6 5 7 or 5 5 7 are not
 		 */
 		
 		//Declaring variables
