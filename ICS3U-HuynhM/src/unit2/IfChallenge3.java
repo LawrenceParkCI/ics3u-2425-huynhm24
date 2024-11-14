@@ -2,7 +2,7 @@ package unit2;
 import java.util.Scanner;
 
 /**
- * Description: This program is a quiz that asks you three questions
+ * Description: This program is a quiz that asks you three questions about movies.
  * Date: November 13, 2024
  * @author Myra Huynh
  */
@@ -18,11 +18,12 @@ public class IfChallenge3 {
 		Scanner sc = new Scanner(System.in);
 		
 		//Introduction
-		System.out.println("|-----------|-|MOVIES QUIZ|-|-------------|");
+		System.out.println("|---------------/|-|MOVIES QUIZ|-|\\----------------|");
 		
-		System.out.println("\nWelcome! Press <Enter> if you are ready to begin the quiz.");
+		System.out.println("\nWelcome! I will ask you 3 questions, let's see how you do!");
 		
 		//Declaring my variables
+		int score = 0;
 		String answer1, answer3;
 		int answer2;
 		
@@ -36,14 +37,11 @@ public class IfChallenge3 {
 		answer1 = sc.nextLine();
 		
 		//Printing output based on answer
-		if (answer1.equalsIgnoreCase("Judy Garland")) {
+		if (answer1.equalsIgnoreCase("Judy Garland") || answer1.equalsIgnoreCase("4")) {
 			System.out.println("Yay! You are correct.");
+			score ++;
 		}
-		
-		else if (answer1.equals("4")) {
-			System.out.println("Yay! You are correct.");
-		}
-		
+	
 		else {
 			System.out.println("Awww. Sorry, you are incorrect.");
 		}
@@ -59,17 +57,15 @@ public class IfChallenge3 {
 		answer2 = sc.nextInt();
 		
 		//Printing output based on answer
-		if (answer2 == 1997) {
+		if (answer2 == 1997 || answer2 == 2) {
 			System.out.println("Congrats! You are right.");
-		}
-		
-		else if (answer2 == 2) {
-			System.out.println("Congrats! You are right.");
+			score ++;
 		}
 		
 		else {
 			System.out.println("Oh no! That is not correct.");
 		}
+		sc.nextLine();
 		
 		//Asking question 3
 		System.out.println("Alright, last one.");
@@ -83,8 +79,25 @@ public class IfChallenge3 {
 		
 		//Printing output based on the answer
 		
+		if (answer3.equalsIgnoreCase("Kevin McCallister") || answer3.equals("4")) {
+			System.out.println("Good job! You are correct!");
+			score ++;
+		}
 		
+		else {
+			System.out.println("Sorry, that is incorrect.");
+		}
 		
+		//Printing total score
+		System.out.println("You got " + score + " out of 3.");
+		
+		if (score >= 2) {
+			System.out.println("Great job!");
+		}
+			
+		else {
+			System.out.println("That's too bad...");
+		}
 		
 		sc.close();
 	}
