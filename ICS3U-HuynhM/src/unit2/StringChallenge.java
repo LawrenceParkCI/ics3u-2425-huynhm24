@@ -3,7 +3,7 @@ package unit2;
 import java.util.Scanner;
 
 /**
- * Description: 
+ * Description: This program tests which fruit the user wants and how many they can pay for. 
  * Date: November 12, 2024
  * @author Myra Huynh
  */
