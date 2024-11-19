@@ -1,11 +1,15 @@
 package unit2;
 
 /**
- * Description:
+ * Description: This program rolls two dice each for the user and computer, adding them together to decide who wins
  * Date: November 18, 2024
  * @author Myra Huynh
  */
 public class DoubleDiceContest {
+	/**
+	 * This is the entry point to the program
+	 * @param args unused
+	 */
 
 	public static void main(String[] args) {
 		/*
