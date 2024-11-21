@@ -1,6 +1,6 @@
 package unit2;
 /**
- * Description: 
+ * Description: This program finds if the user's name is Mr. Lee, and prints their word 20 times
  * Date: November 21, 2024
  * @author Myra Huynh
  */
