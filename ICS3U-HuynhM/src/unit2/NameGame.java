@@ -37,7 +37,7 @@ public class NameGame {
 		else {
 			System.out.println(name + " is my favourite name!");
 		}
-
+		 sc.close();
 	}
 
 }
