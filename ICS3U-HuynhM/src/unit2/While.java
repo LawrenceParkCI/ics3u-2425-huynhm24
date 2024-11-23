@@ -1,4 +1,5 @@
 package unit2;
+import java.util.Scanner;
 
 /**
  * Description: This program practices using while loops by asking the user for a number of people and asking what their names are, then printing a word 20 times. 
@@ -6,9 +7,13 @@ package unit2;
  * @author Myra Huynh
  */
 
-import java.util.Scanner;
+
 
 public class While {
+	/**
+	 * This is the entry point to the program. 
+	 * @param args unused
+	 */
  public static void main(String[] args) {
    Scanner in = new Scanner(System.in);
    System.out.println("How many people are you planning to see?");

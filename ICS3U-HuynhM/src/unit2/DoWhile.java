@@ -1,11 +1,13 @@
 package unit2;
+import java.util.Scanner;
+
 /**
  * Description: This program finds if the user's name is Mr. Lee, and prints their word 20 times
  * Date: November 21, 2024
  * @author Myra Huynh
  */
 
-import java.util.Scanner;
+
 
 public class DoWhile {
 	/**
