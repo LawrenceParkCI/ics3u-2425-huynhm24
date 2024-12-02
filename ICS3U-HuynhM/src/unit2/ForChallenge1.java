@@ -1,10 +1,9 @@
 package unit2;
 
 import java.util.Scanner;
-import java.text.DecimalFormat;
 
 /**
- * Description:
+ * Description: This program counts from one number to the next at a set interval
  * Date: December 1, 2024
  * @author Myra Huynh
  */
