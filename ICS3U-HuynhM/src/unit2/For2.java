@@ -1,7 +1,7 @@
 package unit2;
 
 /**
- * Description: 
+ * Description: This program tests the function of for loops
  * Date: November 27, 2024
  * @author Myra Huynh
  */
