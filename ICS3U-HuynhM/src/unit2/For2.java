@@ -35,7 +35,10 @@ public class For2 {
 	    }
 
 	    //create a variable to store the starting number, and use it in a for loop. Be able to use a double value:
-
+	    
+	    for (double startNum = 5; startNum < 9; startNum += 0.4) {
+	    	System.out.println(startNum);
+	    }
 
 	    
 
@@ -48,6 +51,10 @@ public class For2 {
 	    }
 
 	    System.out.println(sum);
+	    
+	    // The sum variable is only printed outside of the for loop (after it is finished)
+	    //The value that is printed is that value that has been through the for loop 9 times already
+	    //Inside the loop, the sum (starting at 0) is being added to the int (starting at 1) which increases by 1 each loop
 
 	}
 
