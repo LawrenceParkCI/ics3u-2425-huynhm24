@@ -31,6 +31,8 @@ public static void main(String[] args) {
     Using Static Methods
   */
   //Print out a sentence about this school year
+	
+	System.out.println("The first semester of the school year is almost over!");
 
   /*
     You used a method! The println() method takes some information (parameter), and does something with it - in this case, it puts the text into the console.
@@ -44,12 +46,19 @@ public static void main(String[] args) {
   int myNum = 30;
   myNum = doubleNumber(myNum);
   System.out.println(myNum);
+  
+  //a new int variable called myNum is created and the value 30 is assigned to it. 
+  //The method doubleNumber is being applied to the variable so once the code containing the method is found, it jumps back to this part of the code to apply it. 
+  //The value is reassigned to myNum. 
 
  //Explain what is happening
   System.out.println(doubleNumber(5));
+  
+  //The method doubleNumber is used again, this time to the int 5. It is executed after the code above. 
 
 
   //Part 3 is at the bottom, and return here to print out your method's return value
+  System.out.println(larger(myNum, 70));
   
 }
 
@@ -84,4 +93,13 @@ public static int doubleNumber(int num) {
 /*
   Create a method that has 2 int as parameters, and returns the larger one. The name of the method is larger.
 */
+
+public static int larger(int num2, int num3) {
+	if(num2 > num3) {
+		return num2;
+	}
+	else {
+		return num3;
+	}
+}
 }
