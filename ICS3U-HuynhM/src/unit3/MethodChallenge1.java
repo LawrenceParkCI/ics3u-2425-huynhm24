@@ -22,15 +22,14 @@ public class MethodChallenge1 {
 
  /**
  (Description)
- @param x1 ->
- @param y1 ->
- @param x2 ->
- @param y2 ->
- @return 
+ @param x1 -> x value of the first coordinate
+ @param y1 -> y value of the first coordinate
+ @param x2 -> x value of the second coordinate
+ @param y2 -> y value of the second coordinate
+ @return the distance between two (x, y) coordinates 
  */
-   public static double distance( int x1, int y1, int x2, int y2 )
-   {
-       // put your code up in here
-   return 0;
+   public static double distance( int x1, int y1, int x2, int y2 ){
+       double length = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
+       return length;
    }
 }
