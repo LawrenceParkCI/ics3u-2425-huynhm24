@@ -46,6 +46,8 @@ public class Arrays {
 
     //Declare and initialize an array of 3 marks (double data type)
     double [] marks = {45, 66, 75};
+   
+    System.out.println(marks);
 
 
     /**
