@@ -12,19 +12,19 @@ public class MathPlus {
 		System.out.println(hypotenuse(15, 30));
 		System.out.println(numOfFactors(64));
 		System.out.println(isPrime(73));
-		
+
 		int [] arrayInt = {45, 2, 12, 3, 55};
 		System.out.println(sum(arrayInt));
 		System.out.println(min(arrayInt));
 		System.out.println(max(arrayInt));
 		System.out.println(bigDifference(arrayInt));
-		
-		double [] arrayDouble = {5.4, 2.4, 12.3, 3.7, 55.4};
+
+		double [] arrayDouble = {5.4, 46.4, 12.3, 0.7, 55.4};
 		System.out.println(sum(arrayDouble));
 		System.out.println(min(arrayDouble));
 		System.out.println(max(arrayDouble));
 		System.out.println(bigDifference(arrayDouble));
-		
+
 		int [] factors = factors(6);
 		for (int i = factors.length - 1; i >= 0; i--) {
 			System.out.print(factors[i] + " ");
@@ -32,12 +32,12 @@ public class MathPlus {
 	}
 
 	/**
- Description: This method finds the distance between two (x,y) coordinates
- @param x1 -> x value of the first coordinate
- @param y1 -> y value of the first coordinate
- @param x2 -> x value of the second coordinate
- @param y2 -> y value of the second coordinate
- @return the distance between two (x, y) coordinates 
+	 *Description: This method finds the distance between two (x,y) coordinates
+	 *@param x1 -> x value of the first coordinate
+	 *@param y1 -> y value of the first coordinate
+	 *@param x2 -> x value of the second coordinate
+	 *@param y2 -> y value of the second coordinate
+	 *@return the distance between two (x, y) coordinates 
 	 */
 	public static double distance( int x1, int y1, int x2, int y2 ){
 		double length = Math.sqrt(Math.pow((x2 - x1), 2) + Math.pow((y2 - y1), 2));
@@ -87,12 +87,12 @@ public class MathPlus {
 	 */
 	public static int sum(int[] array) {
 		int total = 0;
-		for (int i = array.length - 1; i > 0; i-- ) {
+		for (int i = array.length - 1; i >= 0; i-- ) {
 			total += array[i];
 		}
 		return total;
 	}
-	
+
 	/**
 	 * Description: This method calculates the sum of all doubles in an array
 	 * @param array -> an array of doubles
@@ -100,12 +100,12 @@ public class MathPlus {
 	 */
 	public static double sum(double[] array) {
 		double total = 0;
-		for (int i = array.length - 1; i > 0; i--) {
+		for (int i = array.length - 1; i >= 0; i--) {
 			total += array[i];
 		}
 		return total;
 	}
-	
+
 	/**
 	 * Description: This method finds the index of the smallest number of an array of ints
 	 * @param array -> an array of ints
@@ -113,7 +113,7 @@ public class MathPlus {
 	 */
 	public static int min(int[] array) {
 		int min = 0;
-		
+
 		for (int i = array.length; i > 0; i--) {
 			if (array[i-1] < array[min]) {
 				min = i-1;
@@ -121,7 +121,7 @@ public class MathPlus {
 		}
 		return min;
 	}
-	
+
 	/**
 	 * Description: This method finds the index of the smallest number of an array of doubles
 	 * @param array -> an array of doubles
@@ -129,7 +129,7 @@ public class MathPlus {
 	 */
 	public static double min(double[] array) {
 		int min = 0;
-		
+
 		for (int i = array.length; i > 0; i--) {
 			if (array[i-1] < array[min]) {
 				min = i-1;
@@ -137,7 +137,7 @@ public class MathPlus {
 		}
 		return min;
 	}
-	
+
 	/**
 	 * Description: This method finds the index of the highest number of an array of ints
 	 * @param array -> an array of ints
@@ -145,14 +145,14 @@ public class MathPlus {
 	 */
 	public static int max(int[] array) {
 		int max = 0;
-		
+
 		for (int i = array.length; i > 0; i--) {
 			if (array[i-1] > array[max])
 				max = i-1;
 		}
 		return max;
 	}
-	
+
 	/**
 	 * Description: This method finds the index of the highest number in an array of doubles
 	 * @param array -> an array of doubles
@@ -160,14 +160,14 @@ public class MathPlus {
 	 */
 	public static double max(double[] array) {
 		int max = 0;
-		
+
 		for (int i = array.length; i > 0; i--) {
 			if (array[i-1] > array[max])
 				max = i-1;
 		}
 		return max;
 	}
-	
+
 	/**
 	 * Description: This method finds the difference between the highest and lowest number in an array of ints
 	 * @param array -> an array of ints
@@ -175,12 +175,12 @@ public class MathPlus {
 	 */
 	public static int bigDifference(int[] array) {
 		int max = 0;
-		
+
 		for (int i = array.length; i > 0; i--) {
 			if (array[i-1] > array[max])
 				max = i-1;
 		}
-		
+
 		int min = 0;
 
 		for (int i = array.length; i > 0; i--) {
@@ -188,11 +188,11 @@ public class MathPlus {
 				min = i-1;
 			}
 		}
-		
+
 		int diff = array[max] - array[min];
 		return diff;
 	}
-	
+
 	/**
 	 * Description: This method calculates the difference between the highest and lowest numbers in an array of doubles
 	 * @param array -> an array of doubles
@@ -200,12 +200,12 @@ public class MathPlus {
 	 */
 	public static double bigDifference(double[] array) {
 		int max = 0;
-		
+
 		for (int i = array.length; i > 0; i--) {
 			if (array[i-1] > array[max])
 				max = i-1;
 		}
-		
+
 		int min = 0;
 
 		for (int i = array.length; i > 0; i--) {
@@ -213,11 +213,11 @@ public class MathPlus {
 				min = i-1;
 			}
 		}
-		
+
 		double diff = array[max] - array[min];
 		return diff;
 	}
-	
+
 	/**
 	 * Description: This method saves all the factors of a number into an array
 	 * @param num -> any integer
@@ -226,15 +226,15 @@ public class MathPlus {
 	public static int[] factors(int num) {
 		int [] factors = new int[numOfFactors(num)];
 		int index = 0;
-		
+
 		for (int i = num; i > 0; i--) {
 			if (num % i == 0) {
 				factors[index] = i; 
 				index ++;
 			}
 		}
-		
+
 		return factors;
-		
+
 	}
 }
