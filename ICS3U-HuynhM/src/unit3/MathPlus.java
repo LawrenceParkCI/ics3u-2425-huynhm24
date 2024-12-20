@@ -12,12 +12,23 @@ public class MathPlus {
 		System.out.println(hypotenuse(15, 30));
 		System.out.println(numOfFactors(64));
 		System.out.println(isPrime(73));
-		int [] min = {45, 2, 12, 3, 55};
-		System.out.println(min(min));
-		int [] max = {22, 3, 4, 66, 74};
-		System.out.println(max(max));
-
-
+		
+		int [] arrayInt = {45, 2, 12, 3, 55};
+		System.out.println(sum(arrayInt));
+		System.out.println(min(arrayInt));
+		System.out.println(max(arrayInt));
+		System.out.println(bigDifference(arrayInt));
+		
+		double [] arrayDouble = {5.4, 2.4, 12.3, 3.7, 55.4};
+		System.out.println(sum(arrayDouble));
+		System.out.println(min(arrayDouble));
+		System.out.println(max(arrayDouble));
+		System.out.println(bigDifference(arrayDouble));
+		
+		int [] factors = factors(6);
+		for (int i = factors.length - 1; i >= 0; i--) {
+			System.out.print(factors[i] + " ");
+		}
 	}
 
 	/**
@@ -70,35 +81,35 @@ public class MathPlus {
 	}
 
 	/**
-	 * Description: 
-	 * @param
-	 * @return
+	 * Description: This method calculates the sum of all ints in an array
+	 * @param array -> an array of ints
+	 * @return All of the ints of the array added together
 	 */
 	public static int sum(int[] array) {
 		int total = 0;
-		for (int i = array.length; i > 0; i-- ) {
+		for (int i = array.length - 1; i > 0; i-- ) {
 			total += array[i];
 		}
 		return total;
 	}
 	
 	/**
-	 * Description: 
-	 * @param
-	 * @return
+	 * Description: This method calculates the sum of all doubles in an array
+	 * @param array -> an array of doubles
+	 * @return All of the doubles of the array added together
 	 */
 	public static double sum(double[] array) {
 		double total = 0;
-		for (int i = array.length; i > 0; i--) {
+		for (int i = array.length - 1; i > 0; i--) {
 			total += array[i];
 		}
 		return total;
 	}
 	
 	/**
-	 * Description: 
-	 * @param
-	 * @return
+	 * Description: This method finds the index of the smallest number of an array of ints
+	 * @param array -> an array of ints
+	 * @return The index of the lowest number of the array
 	 */
 	public static int min(int[] array) {
 		int min = 0;
@@ -112,9 +123,9 @@ public class MathPlus {
 	}
 	
 	/**
-	 * Description: 
-	 * @param
-	 * @return
+	 * Description: This method finds the index of the smallest number of an array of doubles
+	 * @param array -> an array of doubles
+	 * @return The index of the lowest number of the array
 	 */
 	public static double min(double[] array) {
 		int min = 0;
@@ -128,9 +139,9 @@ public class MathPlus {
 	}
 	
 	/**
-	 * Description: 
-	 * @param
-	 * @return
+	 * Description: This method finds the index of the highest number of an array of ints
+	 * @param array -> an array of ints
+	 * @return The index of the highest number in the array
 	 */
 	public static int max(int[] array) {
 		int max = 0;
@@ -143,9 +154,9 @@ public class MathPlus {
 	}
 	
 	/**
-	 * Description: 
-	 * @param
-	 * @return
+	 * Description: This method finds the index of the highest number in an array of doubles
+	 * @param array -> an array of doubles
+	 * @return The index of the highest number in the array
 	 */
 	public static double max(double[] array) {
 		int max = 0;
@@ -158,9 +169,9 @@ public class MathPlus {
 	}
 	
 	/**
-	 * Description: 
-	 * @param
-	 * @return
+	 * Description: This method finds the difference between the highest and lowest number in an array of ints
+	 * @param array -> an array of ints
+	 * @return The difference between the highest and lowest number of the array
 	 */
 	public static int bigDifference(int[] array) {
 		int max = 0;
@@ -182,6 +193,11 @@ public class MathPlus {
 		return diff;
 	}
 	
+	/**
+	 * Description: This method calculates the difference between the highest and lowest numbers in an array of doubles
+	 * @param array -> an array of doubles
+	 * @return The difference between the highest and lowest numbers of the array
+	 */
 	public static double bigDifference(double[] array) {
 		int max = 0;
 		
@@ -203,9 +219,9 @@ public class MathPlus {
 	}
 	
 	/**
-	 * Description:
-	 * @param
-	 * @return
+	 * Description: This method saves all the factors of a number into an array
+	 * @param num -> any integer
+	 * @return An array containing the factors of the given number
 	 */
 	public static int[] factors(int num) {
 		int [] factors = new int[numOfFactors(num)];
@@ -218,7 +234,7 @@ public class MathPlus {
 			}
 		}
 		
-		return factors[];
+		return factors;
 		
 	}
 }
