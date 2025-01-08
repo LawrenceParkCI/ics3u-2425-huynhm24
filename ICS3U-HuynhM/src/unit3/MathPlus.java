@@ -158,12 +158,13 @@ public class MathPlus {
 	 * @param array -> an array of doubles
 	 * @return The index of the highest number in the array
 	 */
-	public static double max(double[] array) {
+	public static int max(double[] array) {
 		int max = 0;
 
 		for (int i = array.length; i > 0; i--) {
-			if (array[i-1] > array[max])
+			if (array[i-1] > array[max]) {
 				max = i-1;
+			}
 		}
 		return max;
 	}
