@@ -15,18 +15,18 @@ public class MovieRoom {
 	 */
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
-		
+
 		//Declaring and initializing variables
 		int menu;
 		String movieTitle;
 		String choice;
 		int i = 0;
-		
+
 		//Declaring and initializing arrays
 		String [] watchlist = new String[100]; 
 		String [] watched = new String[100];
 		int [] rated = new int[100];
-		
+
 		do {
 			//Prints menu of action option for the user
 			System.out.println("Movieroom");
@@ -37,7 +37,7 @@ public class MovieRoom {
 			System.out.println("4. Leave");
 			menu = sc.nextInt();
 			sc.nextLine();
-			
+
 			//Adds inputed movie title to a list 
 			if (menu == 1) {
 				System.out.println("Add or move movie");
@@ -53,20 +53,28 @@ public class MovieRoom {
 				}
 
 				else {
-					//use method here to compare movie title to those already in watchlist 
+					if (compareString(movieTitle, watchlist) == true) {
+						//find index and delete it from one array or can you find index in the method and return it instead of true?
+						// instead of deleting save it as same title but with a checkmark
+					}
 					watched[i] = movieTitle;
 					rated[i] = Integer.parseInt(choice);
 					i++;
 				}
 			}
-			
+
 			//Uses method to print watchlist 
 			if (menu == 2) {
+				System.out.println("Movie count: " + watchlist.length);
 				printArray(watchlist, watchlist.length, "Watchlist");
+				printArrayInt(rated, rated.length, "Ratings");
+				//number of stars 
+				//if int = 3 -> print 3 stars 
 			}
-			
+
 			//Uses method to print watched movies
 			if (menu == 3) {
+				System.out.println("Movie count: " + watched.length);
 				printArray(watched, watched.length, "Movies you've watched");
 			}
 
@@ -76,7 +84,7 @@ public class MovieRoom {
 	}
 
 	/**
-	 * This method will print all the non-null values of an array
+	 * This method will print all the non-null values of an array of strings
 	 * @param array -> the array to print
 	 * @param count -> the number of values of the array
 	 * @param name -> the name of the list being printed 
@@ -86,7 +94,7 @@ public class MovieRoom {
 		if (count == 0) {
 			System.out.println("No items in " + name + ".");
 		}
-		
+
 		else {
 			for (int x = 0; x < count; x++) {
 				if (array [x] != null) {
@@ -96,4 +104,41 @@ public class MovieRoom {
 		}
 	}
 
+	/**
+	 * This method will print all the non-null values of an array of ints
+	 * @param array -> the array to print
+	 * @param count -> the number of values of the array
+	 * @param name -> the name of the list being printed 
+	 */
+	public static void printArrayInt(int[] array, int count, String name) {
+		System.out.println(name);
+		if (count == 0) {
+			System.out.println("No items in " + name + ".");
+		}
+
+		else {
+			for (int x = 0; x < count; x++) {
+				System.out.println(array[x]);
+			}
+		}
+	}
+
+	/**
+	 * This method will compare a string to see if it already exists in an array
+	 * @param array -> The array to compare to
+	 * @param title -> The string to compare
+	 * @return true if the string exists in the array, false if it does not
+	 */
+	public static boolean compareString(String title, String[] array) {
+		for (int x = 0; x > array.length; x++) {
+			title.compareTo(array[x]);
+
+			if(title.equalsIgnoreCase(array[x])) {
+				x = array.length;
+				return true;
+			}
+		}
+
+		return false;		
+	}
 }
