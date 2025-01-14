@@ -1,5 +1,9 @@
 package culminating;
+import java.awt.Color;
+import java.awt.Font;
 import java.util.Scanner;
+
+import hsa_new.Console;
 
 /**
  * Description: This program organizes movies for the user into watchlist and watched, as well as rate movies. 
@@ -12,9 +16,11 @@ public class MovieRoom {
 	/**
 	 * This is the entry point to the program
 	 * @param args unused 
+	 * @throws InterruptedException 
 	 */
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
 		Scanner sc = new Scanner(System.in);
+		Console c = new Console(40, 150, "Movieroom");
 
 		//Declaring and initializing variables
 		int menu;
@@ -28,9 +34,66 @@ public class MovieRoom {
 		int [] rated = new int[100];
 
 		do {
+			//Mainscreen graphics
+			c.setColor(Color.BLACK);
+			c.fillRect(0, 0, 2000, 2000);
+
+			c.setColor(new Color(96, 111, 184));
+			c.fillRect(190, 370, 800, 200);
+
+			c.setColor(Color.WHITE);
+			c.setFont(new Font("SansSerif", Font.BOLD, 100));
+			c.drawString("movieroom", 320, 495);
+
+			//Printing 5 stars one by one
+			c.setColor(new Color(255, 249, 189));
+			c.fillStar(190, 225, 120, 120);
+
+			c.setColor(new Color(255, 240, 91));
+			c.drawStar(190, 225, 120, 120);
+
+			Thread.sleep(250);
+
+			c.setColor(new Color(255, 249, 189));
+			c.fillStar(360, 225, 120, 120);
+
+			c.setColor(new Color(255, 240, 91));
+			c.drawStar(360, 225, 120, 120);
+
+			Thread.sleep(250);
+
+			c.setColor(new Color(255, 249, 189));
+			c.fillStar(530, 225, 120, 120);
+
+			c.setColor(new Color(255, 240, 91));
+			c.drawStar(530, 225, 120, 120);
+
+			Thread.sleep(250);
+
+			c.setColor(new Color(255, 249, 189));
+			c.fillStar(700, 225, 120, 120);
+
+			c.setColor(new Color(255, 240, 91));
+			c.drawStar(700, 225, 120, 120);
+
+			Thread.sleep(250);
+
+			c.setColor(new Color(255, 249, 189));
+			c.fillStar(870, 225, 120, 120);
+
+			c.setColor(new Color(255, 240, 91));
+			c.drawStar(870, 225, 120, 120);
+			
+			Thread.sleep(250);
+			c.clear();
 			//Prints menu of action option for the user
-			System.out.println("Movieroom");
-			System.out.println("Welcome! What would you like to do today? Type the index number of where you want to go!");
+			c.setColor(new Color(96, 111, 184));
+			c.fillRect(0, 0, 2000, 2000);
+			
+			c.setColor(Color.WHITE);
+			c.setFont(new Font("SansSerif", Font.BOLD, 50));
+			c.drawString("Welcome to movieroom! What would you like to do today? Type the index number of where you want to go!", 320, 495);
+			
 			System.out.println("1. Add movie");
 			System.out.println("2. Watchlist");
 			System.out.println("3. Watched");
@@ -55,7 +118,7 @@ public class MovieRoom {
 					watched[i] = movieTitle;
 					rated[i] = Integer.parseInt(choice);
 					i++;
-					
+
 					//Using method to compare and change watchlist
 					if (compareString(movieTitle, watchlist) == true) {
 						System.out.println(movieTitle + " was moved from watchlist to watched movies");
@@ -89,6 +152,7 @@ public class MovieRoom {
 		} while (menu != 4);
 
 		sc.close();
+		c.close();
 	}
 
 	/**
