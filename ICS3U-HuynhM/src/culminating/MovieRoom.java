@@ -38,7 +38,7 @@ public class MovieRoom {
 			menu = sc.nextInt();
 			sc.nextLine();
 
-			//Adds inputed movie title to a list 
+			//Allowing user to add to the lists
 			if (menu == 1) {
 				System.out.println("Add or move movie");
 				System.out.println("What is the title of the movie?");
@@ -48,34 +48,42 @@ public class MovieRoom {
 
 				if(choice.equals("+")) {
 					watchlist[i] = movieTitle;
-					System.out.println(watchlist[i]);
 					i++;
 				}
 
 				else {
-					if (compareString(movieTitle, watchlist) == true) {
-						//find index and delete it from one array or can you find index in the method and return it instead of true?
-						// instead of deleting save it as same title but with a checkmark
-					}
 					watched[i] = movieTitle;
 					rated[i] = Integer.parseInt(choice);
 					i++;
+					
+					//Using method to compare and change watchlist
+					if (compareString(movieTitle, watchlist) == true) {
+						System.out.println(movieTitle + " was moved from watchlist to watched movies");
+					}
+
+					else {
+						System.out.println(movieTitle + " was added to watched movies");
+					}
 				}
 			}
 
-			//Uses method to print watchlist 
-			if (menu == 2) {
+			//Uses method to print watchlist
+			else if (menu == 2) {
 				System.out.println("Movie count: " + watchlist.length);
 				printArray(watchlist, watchlist.length, "Watchlist");
+			}
+
+			//Uses method to print watched movies
+			else if (menu == 3) {
+				System.out.println("Movie count: " + watched.length);
+				printArray(watched, watched.length, "Movies you've watched");
 				printArrayInt(rated, rated.length, "Ratings");
 				//number of stars 
 				//if int = 3 -> print 3 stars 
 			}
 
-			//Uses method to print watched movies
-			if (menu == 3) {
-				System.out.println("Movie count: " + watched.length);
-				printArray(watched, watched.length, "Movies you've watched");
+			else {
+				System.out.println("Uh oh! You got lost! Type 0.");
 			}
 
 		} while (menu != 4);
@@ -112,33 +120,29 @@ public class MovieRoom {
 	 */
 	public static void printArrayInt(int[] array, int count, String name) {
 		System.out.println(name);
-		if (count == 0) {
-			System.out.println("No items in " + name + ".");
-		}
 
-		else {
-			for (int x = 0; x < count; x++) {
+		for (int x = 0; x < count; x++) {
+			if (array [x] != 0) {
 				System.out.println(array[x]);
 			}
 		}
 	}
 
 	/**
-	 * This method will compare a string to see if it already exists in an array
+	 * This method will compare a string to see if it already exists in an array and modify the value if it is the same
 	 * @param array -> The array to compare to
 	 * @param title -> The string to compare
 	 * @return true if the string exists in the array, false if it does not
 	 */
 	public static boolean compareString(String title, String[] array) {
-		for (int x = 0; x > array.length; x++) {
-			title.compareTo(array[x]);
-
-			if(title.equalsIgnoreCase(array[x])) {
-				x = array.length;
+		for (int x = 0; x < array.length; x++) {
+			if(array[x] != null && title.equalsIgnoreCase(array[x])) {
+				array[x] = array[x] + "✓";
 				return true;
 			}
 		}
 
-		return false;		
+		return false;
+
 	}
 }
