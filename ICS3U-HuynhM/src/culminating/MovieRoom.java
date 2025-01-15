@@ -22,14 +22,14 @@ public class MovieRoom {
 	public static void main(String[] args) throws InterruptedException {
 		Scanner sc = new Scanner(System.in);
 		Console c = new Console(40, 150, "Movieroom");
-		int height = c.getHeight();
-		int width = c.getWidth();
 
 		//Declaring and initializing variables
 		int menu;
 		String movieTitle;
 		String choice;
 		int i = 0;
+		int height = c.getHeight();
+		int width = c.getWidth();
 
 		//Declaring and initializing arrays
 		String [] watchlist = new String[100]; 
@@ -185,13 +185,14 @@ public class MovieRoom {
 				if (watched.length > 0) {
 					printArray(watched, watched.length, "Movies you've watched");
 					printArrayInt(rated, rated.length, "Ratings");
+					//number of stars loop
+					//if int = 3 -> print 3 stars
 				}
 				
 				else {
 					c.drawString("You have no watched movies yet", 250, 215);
 				}
-				//number of stars loop
-				//if int = 3 -> print 3 stars 
+				 
 			}
 
 			else {
@@ -202,7 +203,7 @@ public class MovieRoom {
 				c.drawString("Uh oh! You got lost! Type 0.", 250, 215);
 			}
 
-		} while (menu != 4);
+		} while (menu < 4);
 		
 		//Exit graphics
 		c.setColor(Color.BLACK);
