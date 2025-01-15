@@ -18,10 +18,10 @@ public class MovieRoom {
 	 * @param args unused 
 	 * @throws InterruptedException 
 	 */
-	
+
 	public static void main(String[] args) throws InterruptedException {
 		Scanner sc = new Scanner(System.in);
-		Console c = new Console(40, 150, "Movieroom");
+		Console c = new Console(35, 150, "Movieroom");
 
 		//Declaring and initializing variables
 		int menu;
@@ -49,16 +49,16 @@ public class MovieRoom {
 		Thread.sleep(450);
 
 		//Printing 5 stars one by one
-		
+
 		for (int count = 0; count < 5; count ++) {
 			c.setColor(new Color(255, 249, 189));
-			
+
 			int x = 190 + 170 * count;
 			c.fillStar(x, 205, 120, 120);
-			
+
 			c.setColor(new Color(255, 240, 91));
 			c.drawStar(x, 205, 120, 120);
-			
+
 			Thread.sleep(250);
 		}
 
@@ -69,15 +69,15 @@ public class MovieRoom {
 			//Prints menu of action option for the user
 			c.setTextBackgroundColor(new Color(96, 111, 184));
 			c.setTextColor(Color.WHITE);
-			c.setCursor(35, 75);
+			c.setCursor(30, 75);
 
 			c.setColor(new Color(96, 111, 184));
 			c.fillRect(0, 0, width, height);
 
 			c.setColor(Color.WHITE);
 			c.setFont(new Font("SansSerif", Font.ITALIC, 35));
-			c.drawString("You are in the movieroom! What would you like to do?", 138, 95);
-			c.drawString("Type the index number of where you want to go!", 164, 150);
+			c.drawString("You are in the movieroom! What would you like to do?", 170, 95);
+			c.drawString("Type the index number of where you want to go!", 200, 150);
 
 			c.setColor(new Color(224, 232, 255));
 			c.fillRect(193, 250, 350, 75);
@@ -98,32 +98,32 @@ public class MovieRoom {
 			if (menu == 1) {
 				c.setTextBackgroundColor(new Color(96, 111, 184));
 				c.setTextColor(Color.WHITE);
-				c.setCursor(16, 36);
+				c.setCursor(14, 36);
 
 				c.setColor(new Color(34, 58, 125));
 				c.fillRect(0, 0, width, height);
 				c.setColor(new Color(224, 232, 255));
 				c.fillRect(264, 50, 650, 100);
-				c.setColor(new Color(96, 111, 184));
-				c.fillRect(264, 227, 650, 70);
 
 				c.setColor(Color.BLACK);
 				c.setFont(new Font("SansSerif", Font.BOLD, 45));;
 				c.drawString("Add or move movie", 364, 120);
 
+				c.setColor(new Color(96, 111, 184));
+				c.fillRect(264, 231, 650, 70);
 				c.setColor(Color.WHITE);
 				c.setFont(new Font("SansSerif", Font.ITALIC, 30));
 				c.drawString("What is the title of the movie?", 369, 205);
 				movieTitle = c.readLine();
 				c.setColor(new Color(34, 58, 125));
-				c.fillRect(914, 227, 400, 50);
+				c.fillRect(914, 250, 400, 70);
 
 				c.setColor(Color.WHITE);
 				c.drawString("Type + to add it to watchlist OR rate it from 1 to 5", 220, 357);
 				c.setColor(new Color(96, 111, 184));
 				c.fillRect(264, 394, 650, 70);
 
-				c.setCursor(26, 36);
+				c.setCursor(22, 36);
 				choice = c.readLine();
 				c.setColor(new Color(34, 58, 125));
 				c.fillRect(914, 394, 400, 50);
@@ -135,8 +135,8 @@ public class MovieRoom {
 					watchlist[i] = movieTitle;
 					i++;
 					c.setColor(Color.WHITE);
-					c.drawString(movieTitle + " was added to watchlist", 300, 500);
-
+					c.drawString(movieTitle + " was added to watchlist", 500, 600);
+					Thread.sleep(1000);
 				}
 
 				else {
@@ -155,6 +155,7 @@ public class MovieRoom {
 				}
 			}
 
+
 			//Uses method to print watchlist
 			else if (menu == 2) {
 				c.setColor(new Color(34, 58, 125));
@@ -164,10 +165,10 @@ public class MovieRoom {
 
 				c.drawString("Movie count: " + watchlist.length, 364, 120);
 				if (watchlist.length > 0) {
-				//How do you print a method hsa console?
-				printArray(watchlist, watchlist.length, "Watchlist");
+					//How do you print a method hsa console?
+					printArray(watchlist, watchlist.length, "Watchlist");
 				}
-				
+
 				else {
 					c.drawString("You have no movies in your watchlist", 250, 215);
 				}
@@ -181,18 +182,18 @@ public class MovieRoom {
 				c.fillRect(264, 50, 650, 100);
 
 				c.drawString("Movie count: " + watched.length, 364, 120);
-				
+
 				if (watched.length > 0) {
 					printArray(watched, watched.length, "Movies you've watched");
 					printArrayInt(rated, rated.length, "Ratings");
 					//number of stars loop
 					//if int = 3 -> print 3 stars
 				}
-				
+
 				else {
 					c.drawString("You have no watched movies yet", 250, 215);
 				}
-				 
+
 			}
 
 			else {
@@ -204,7 +205,7 @@ public class MovieRoom {
 			}
 
 		} while (menu < 4);
-		
+
 		//Exit graphics
 		c.setColor(Color.BLACK);
 		c.fillRect(0, 0, width, height);
@@ -218,33 +219,33 @@ public class MovieRoom {
 		Thread.sleep(450);
 
 		//Removing the stars one by one
-		for (int count = 0; count < 5; count ++) {
+		for (int count2 = 0; count2 < 5; count2 ++) {
 			c.setColor(new Color(255, 249, 189));
-			
-			int x = 190 + 170 * count;
+
+			int x = 190 + 170 * count2;
 			c.fillStar(x, 205, 120, 120);
-			
+
 			c.setColor(new Color(255, 240, 91));
 			c.drawStar(x, 205, 120, 120);
 		}
-		
+
 		Thread.sleep(500);
-		
-		for (int count = 0; count < 5; count ++) {
+
+		for (int count3 = 0; count3 < 5; count3 ++) {
 			c.setColor(Color.BLACK);
-			
-			int x = 870 - 170 * count;
+
+			int x = 870 - 170 * count3;
 			c.fillStar(x, 205, 120, 120);
-			
+
 			c.setColor(Color.BLACK);
 			c.drawStar(x, 205, 120, 120);
-			
+
 			Thread.sleep(250);
 		}
 
 		Thread.sleep(600);
 		c.clear();
-		
+
 		sc.close();
 		c.close();
 	}
