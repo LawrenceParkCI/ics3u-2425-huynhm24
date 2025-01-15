@@ -135,11 +135,12 @@ public class MovieRoom {
 					watchlist[i] = movieTitle;
 					i++;
 					c.setColor(Color.WHITE);
-					c.drawString(movieTitle + " was added to watchlist", 500, 600);
-					Thread.sleep(1000);
+					c.drawString(movieTitle + " was added to watchlist", 400, 500);
+					c.drawString("Hit any key to return to the menu:", 40, 550);
+					c.getChar();
 				}
 
-				else {
+				else if (choice.equals("1") || choice.equals("2") || choice.equals("3") || choice.equals("4") || choice.equals("5")) {
 					watched[i] = movieTitle;
 					rated[i] = Integer.parseInt(choice);
 					i++;
@@ -152,6 +153,15 @@ public class MovieRoom {
 					else {
 						c.drawString(movieTitle + " was added to watched movies", 300, 500);
 					}
+					
+					c.drawString("Hit any key to return to the menu:", 40, 550);
+					c.getChar();
+				}
+				
+				else {
+					c.drawString("There was a mistake", 300, 300);
+					c.drawString("Hit any key to return to the menu:", 40, 550);
+					c.getChar();
 				}
 			}
 
@@ -204,7 +214,7 @@ public class MovieRoom {
 				c.drawString("Uh oh! You got lost! Type 0.", 250, 215);
 			}
 
-		} while (menu < 4);
+		} while (menu != 4);
 
 		//Exit graphics
 		c.setColor(Color.BLACK);
