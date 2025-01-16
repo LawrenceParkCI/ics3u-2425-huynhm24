@@ -96,7 +96,7 @@ public class MovieRoom {
 
 			menu = c.readLine();
 			menu2 = Integer.parseInt(menu);
-			
+
 			Thread.sleep(600);
 			c.clear();
 
@@ -188,7 +188,14 @@ public class MovieRoom {
 
 				Thread.sleep(300);
 				
-				printArray(watchlist, watchlist.length, "watchlist", c, width, height);
+				if(watchlistCount > 0) {
+					int pages = watchlistCount / 15;
+					
+					if (watchlistCount % 15 != 0) {
+						pages ++;
+					}
+					
+				printArray(watchlist, "watchlist", c, width, height, pages);
 
 			}
 
@@ -209,17 +216,27 @@ public class MovieRoom {
 
 				Thread.sleep(300);
 
-				printArray(watched, watched.length, "Movies you've watched", c, width, height);
+				if(watchedCount > 0) {
+					int pages = watchedCount / 15;
+					
+					if (watchedCount % 15 != 0) {
+						pages ++;
+					}
+					//int[] ratings = {5, 3, 4, 2, 1, 5, 1, 2, 3, 4, 2, 3, 4, 5, 1, 2, 3, 1, 5, 2, 1, 2, 4, 3, 3, 5};
+					//printArrayInt(ratings, ratings.length, c);
 
-				//if(watchedCount > 0) {
-					int[] ratings = {5, 3, 4, 2, 1, 5, 1, 2, 3, 4, 2, 3, 4, 5, 1, 2, 3, 1, 5, 2, 1, 2, 4, 3, 3, 5};
-					printArrayInt(ratings, ratings.length, c);
-					//printArrayInt(rated, rated.length, c);
-				//}
+					for (int a = 0; a <= pages; a++) {
+						printArray(watched, "Movies you've watched", c, width, height, pages);
+						printArrayInt(rated, rated.length, c);
+						
+						c.drawString("Hit any key to go to the next page", 390, 550);
+						c.getChar();
+					}
+				}
 
 
 			}
-				
+
 			else {
 				// still need to catch letters
 				c.setColor(new Color(34, 58, 125));
@@ -233,7 +250,7 @@ public class MovieRoom {
 
 			c.setColor(Color.WHITE);
 			c.setFont(new Font("SansSerif", Font.PLAIN, 25));
-			c.drawString("Hit any key to return to the menu:", 390, 550);
+			c.drawString("Hit any key to return to the menu:", 390, 600);
 			c.getChar();
 
 		} while (menu2 != 4);
@@ -292,31 +309,30 @@ public class MovieRoom {
 	 * @param height -> Height of the console
 	 */
 
-	public static void printArray(String[] array, int count, String name, Console c, int width, int height) {
+	public static void printArray(String[] array, String name, Console c, int width, int height, int page) {
 		c.setColor(Color.WHITE);
 		c.setFont(new Font("SansSerif", Font.ITALIC, 25));
 		int ySpacing = 250;
 		int xSpacing = 90;
+		int count = array.length;
 
 		if (count == 0) {
 			c.drawString("You have no movies in " + name, 250, 215);
 		}
 
 		else {
-			for (int x = 0; x < count; x++) {
+			for (int x = (page - 1) * 15; x < 15 + x; x++) {
 				if (array [x] != null) {
 					c.drawString(array[x], xSpacing, ySpacing);
 					ySpacing += 50;
 
 					if (ySpacing == 500) {
 						ySpacing = 250;
-						xSpacing += 480;
+						xSpacing += 450;
 
 					}
 
 					if (xSpacing > 1050) {
-						c.drawString("Hit any key to go to the next page", 390, 550);
-						c.getChar();
 
 						c.setColor(new Color(34, 58, 125));
 						c.fillRect(80, 200, width, height);
@@ -340,33 +356,41 @@ public class MovieRoom {
 	 */
 
 	public static void printArrayInt(int[] array, int count, Console c) {
-
 		int yPoint = 255;
-		int xPoint = 90;
-				
-		for (int x = 0; x < count; x++) {
-			if (array [x] != 0) {
-				for (int counter = 0; counter < array[x]; counter ++) {
-					
-					if (yPoint > 455) {
-						yPoint = 255;
-						xPoint += 480;
-					}
-					
-					if (xPoint > 1050) {
-						yPoint = 255;
-						xPoint = 90;
-					}
-					
-					c.setColor(new Color(255, 249, 189));
-					xPoint = 90 + 15 * counter;	
-					c.fillStar(xPoint, yPoint, 12, 12);
+		int spacing = 0;
 
-				}
-				
-				yPoint += 50;
+
+		for (int x = 0; x < count; x++) {
+			int xPoint = 90;
+			int set = 90;
+
+			if (yPoint > 455) {
+				spacing ++;
+				yPoint = 255;
 			}
+
+			if (spacing > 0) {
+				set = 90 + 450* spacing;
+			}
+
+			if (xPoint > 1050) {
+				spacing = 0;
+				yPoint = 255;
+				set = 90;
+			}
+
+			for (int counter = 0; counter < array[x]; counter ++) {
+
+				c.setColor(new Color(255, 249, 189));
+				xPoint = set + 15 * counter;	
+				c.fillStar(xPoint, yPoint, 12, 12);
+
+			}
+
+			yPoint += 50;
 		}
+
+
 	}
 
 
