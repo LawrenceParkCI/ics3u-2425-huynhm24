@@ -6,7 +6,7 @@ import java.util.Scanner;
 import hsa_new.Console;
 
 /**
- * Description: This program organizes movies for the user into watchlist and watched, as well as rate movies. 
+ * Description: This program organizes movies for the user into watchlist and watched categories, as well as rate movies they watched. 
  * Date: January 8, 2025
  * @author Myra Huynh
  */
@@ -23,13 +23,16 @@ public class MovieRoom {
 		Scanner sc = new Scanner(System.in);
 		Console c = new Console(35, 150, "Movieroom");
 
-		//Declaring and initializing variables
-		String menu;
-		int menu2;
+		//User input variables
+		int menu;
 		String movieTitle;
 		String choice;
+		
+		//Counter variables
 		int watchlistCount = 0;
 		int watchedCount = 0;
+		
+		//Set variables
 		int height = c.getHeight();
 		int width = c.getWidth();
 
@@ -51,7 +54,6 @@ public class MovieRoom {
 		Thread.sleep(450);
 
 		//Printing 5 stars one by one
-
 		for (int count = 0; count < 5; count ++) {
 			c.setColor(new Color(255, 249, 189));
 
@@ -68,7 +70,7 @@ public class MovieRoom {
 		c.clear();
 
 		do {
-			//Prints menu of action option for the user
+			//Prints menu of action options for the user
 			c.setTextBackgroundColor(new Color(96, 111, 184));
 			c.setTextColor(Color.WHITE);
 			c.setCursor(30, 75);
@@ -89,19 +91,17 @@ public class MovieRoom {
 
 			c.setColor(Color.BLACK);
 			c.setFont(new Font("SansSerif", Font.PLAIN, 35));
-			c.drawString("1. Add movie", 258, 300);
+			c.drawString("1. Enter movie", 250, 300);
 			c.drawString("2. Watchlist", 708, 300 );
 			c.drawString("3. Watched", 278, 450);
 			c.drawString("4. Leave", 728, 450);
-
-			menu = c.readLine();
-			menu2 = Integer.parseInt(menu);
+			menu = c.readInt();
 
 			Thread.sleep(600);
 			c.clear();
 
-			//Allowing user to add to the lists
-			if (menu2 == 1) {
+			//Asking the user for a movie title
+			if (menu == 1) {
 				c.setTextBackgroundColor(new Color(96, 111, 184));
 				c.setTextColor(Color.WHITE);
 				c.setCursor(14, 36);
@@ -113,7 +113,7 @@ public class MovieRoom {
 
 				c.setColor(Color.BLACK);
 				c.setFont(new Font("SansSerif", Font.BOLD, 45));
-				c.drawString("Add or move movie", 364, 120);
+				c.drawString("Enter Movie", 450, 120);
 
 				c.setColor(new Color(96, 111, 184));
 				c.fillRect(264, 231, 650, 70);
@@ -123,56 +123,72 @@ public class MovieRoom {
 				movieTitle = c.readLine();
 				c.setColor(new Color(34, 58, 125));
 				c.fillRect(914, 250, 400, 70);
-
-				c.setColor(Color.WHITE);
-				c.drawString("Type + to add it to watchlist OR rate it from 1 to 5", 220, 357);
-				c.setColor(new Color(96, 111, 184));
-				c.fillRect(264, 394, 650, 70);
-
-				c.setCursor(22, 36);
-				choice = c.readLine();
-				c.setColor(new Color(34, 58, 125));
-				c.fillRect(914, 394, 400, 50);
-
-				Thread.sleep(500);
-
-				if(choice.equals("+")) {
-					watchlist[watchlistCount] = movieTitle;
-					watchlistCount ++;
-					c.setColor(Color.WHITE);
-					c.drawString(movieTitle + " was added to watchlist", 400, 500);
+				
+				//Rejecting a title longer than 24 characters
+				if (movieTitle.length() > 24) {
+				    c.setColor(new Color(34, 58, 125));
+				    c.fillRect(0, 0, width, height);
+				    c.setColor(Color.WHITE);
+				    c.setFont(new Font("SansSerif", Font.BOLD, 40));
+				    c.drawString("Title is too long! Max: 24 Characters", 200, 300);
 				}
+				
+				//Saving a title less than 24 characters to watchlist or watched, depending on user input 
+				else {
+					c.setColor(Color.WHITE);
+					c.drawString("Type + to add it to watchlist OR rate it from 1 to 5", 220, 357);
+					c.setColor(new Color(96, 111, 184));
+					c.fillRect(264, 394, 650, 70);
 
-				else if (choice.equals("1") || choice.equals("2") || choice.equals("3") || choice.equals("4") || choice.equals("5")) {
-					watched[watchedCount] = movieTitle;
-					rated[watchedCount] = Integer.parseInt(choice);
-					watchedCount ++;
+					c.setCursor(22, 36);
+					choice = c.readLine();
+					c.setColor(new Color(34, 58, 125));
+					c.fillRect(914, 394, 400, 50);
 
 					Thread.sleep(500);
-					c.setColor(Color.WHITE);
 
-					//Using method to compare and change watchlist
-					if (compareString(movieTitle, watchlist, c) == true) {
-						c.drawString(movieTitle + " was moved from watchlist to watched movies", 200, 500);
+					//Adding movie to watchlist
+					if(choice.equals("+")) {
+						watchlist[watchlistCount] = movieTitle;
+						watchlistCount ++;
+						c.setColor(Color.WHITE);
+						c.drawString(movieTitle + " was added to watchlist", 400, 500);
 					}
+					
+					//Adding movie to watched
+					else if (choice.equals("1") || choice.equals("2") || choice.equals("3") || choice.equals("4") || choice.equals("5")) {
+						watched[watchedCount] = movieTitle;
+						rated[watchedCount] = Integer.parseInt(choice);
+						watchedCount ++;
+
+						Thread.sleep(500);
+						c.setColor(Color.WHITE);
+
+						//Using method to compare and change watchlist if needed
+						if (compareString(movieTitle, watchlist, c) == true) {
+							c.drawString(movieTitle + " was moved from watchlist to watched movies", 200, 500);
+						}
+
+						else {
+							c.drawString(movieTitle + " was added to watched movies", 300, 500);
+						}
+
+					}
+
 
 					else {
-						c.drawString(movieTitle + " was added to watched movies", 300, 500);
+						c.clear();
+						c.setColor(Color.WHITE);
+						c.setFont(new Font("SansSerif", Font.BOLD, 40));
+						c.drawString("There was a mistake", 400, 300);
 					}
-
 				}
-
-				else {
-					c.clear();
-					c.setColor(Color.WHITE);
-					c.setFont(new Font("SansSerif", Font.BOLD, 40));
-					c.drawString("There was a mistake", 400, 300);
-				}
+				
 			}
 
 
 			//Uses method to print watchlist
-			else if (menu2 == 2) {
+			else if (menu == 2) {
 				c.setColor(new Color(34, 58, 125));
 				c.fillRect(0, 0, width, height);
 				c.setColor(new Color(224, 232, 255));
@@ -188,19 +204,19 @@ public class MovieRoom {
 
 				Thread.sleep(300);
 				
-				if(watchlistCount > 0) {
-					int pages = watchlistCount / 15;
-					
-					if (watchlistCount % 15 != 0) {
-						pages ++;
-					}
-					
-				printArray(watchlist, "watchlist", c, width, height, pages);
+				//Method is only called if there is a value in the array
+				if (watchlistCount > 0) {
+					printArray(watchlist, c, width, height);
+				}
+				
+				else {
+					c.drawString("You have no movies in watchlist", 340, 300);
+				}
 
 			}
 
 			//Uses method to print watched movies
-			else if (menu2 == 3) {
+			else if (menu == 3) {
 				c.setColor(new Color(34, 58, 125));
 				c.fillRect(0, 0, width, height);
 				c.setColor(new Color(224, 232, 255));
@@ -215,45 +231,48 @@ public class MovieRoom {
 				c.drawString("Movie count: " + watchedCount, 470, 200);
 
 				Thread.sleep(300);
-
+				
+				//Method is only called if there is a value in the array
 				if(watchedCount > 0) {
-					int pages = watchedCount / 15;
-					
-					if (watchedCount % 15 != 0) {
-						pages ++;
-					}
-					//int[] ratings = {5, 3, 4, 2, 1, 5, 1, 2, 3, 4, 2, 3, 4, 5, 1, 2, 3, 1, 5, 2, 1, 2, 4, 3, 3, 5};
-					//printArrayInt(ratings, ratings.length, c);
-
-					for (int a = 0; a <= pages; a++) {
-						printArray(watched, "Movies you've watched", c, width, height, pages);
-						printArrayInt(rated, rated.length, c);
-						
-						c.drawString("Hit any key to go to the next page", 390, 550);
-						c.getChar();
-					}
+					printMoviesWithRatings(watched, rated, c, width, height);
+				}
+				
+				else {
+					c.drawString("You have no watched movies", 360, 300);
 				}
 
 
 			}
-
+			
+			//Leaving screen
+			else if (menu == 4) {
+				c.setColor(new Color(34, 58, 125));
+				c.fillRect(0, 0, width, height);
+				c.setColor(Color.WHITE);
+				c.setFont(new Font("SansSerif", Font.ITALIC, 45));
+				c.drawString("Thank you for using MovieRoom! Goodbye!", 100, 300);
+				Thread.sleep(1000); 
+			}
+			
+			//Redirecting from a wrong input
 			else {
-				// still need to catch letters
 				c.setColor(new Color(34, 58, 125));
 				c.fillRect(0, 0, width, height);
 				c.setColor(Color.WHITE);
 				c.setFont(new Font("SansSerif", Font.ITALIC, 65));
-				c.drawString("Uh oh! You got lost! Type 0.", 250, 215);
+				c.drawString("Uh oh! You got lost!", 250, 215);
+			}
+			
+			//Providing a way back to the menu screen
+			if (menu != 4) {
+				Thread.sleep(500);
+			    c.setColor(Color.WHITE);
+			    c.setFont(new Font("SansSerif", Font.PLAIN, 25));
+			    c.drawString("Hit any key to return to the menu:", 390, 550);
+			    c.getChar();
 			}
 
-			Thread.sleep(500);
-
-			c.setColor(Color.WHITE);
-			c.setFont(new Font("SansSerif", Font.PLAIN, 25));
-			c.drawString("Hit any key to return to the menu:", 390, 600);
-			c.getChar();
-
-		} while (menu2 != 4);
+		} while (menu != 4);
 
 		//Exit graphics
 		c.setColor(Color.BLACK);
@@ -267,7 +286,7 @@ public class MovieRoom {
 		c.drawString("~ The End ~", 267, 475);
 		Thread.sleep(450);
 
-		//Removing the stars one by one
+		//Printing 5 stars
 		for (int count2 = 0; count2 < 5; count2 ++) {
 			c.setColor(new Color(255, 249, 189));
 
@@ -279,7 +298,8 @@ public class MovieRoom {
 		}
 
 		Thread.sleep(500);
-
+		
+		//Removing the stars one by one
 		for (int count3 = 0; count3 < 5; count3 ++) {
 			c.setColor(Color.BLACK);
 
@@ -297,103 +317,128 @@ public class MovieRoom {
 
 		sc.close();
 		c.close();
-	}
-
+	}		
 
 	/**
 	 * This method will print all the non-null values of an array of strings
 	 * @param array -> The array to print
-	 * @param count -> The number of values of the array
 	 * @param c -> The Console object for drawing text
 	 * @param width -> Width of the console
 	 * @param height -> Height of the console
 	 */
 
-	public static void printArray(String[] array, String name, Console c, int width, int height, int page) {
+	public static void printArray(String[] array, Console c, int width, int height) {
 		c.setColor(Color.WHITE);
 		c.setFont(new Font("SansSerif", Font.ITALIC, 25));
+		
+		//Initial x and y coordinates
 		int ySpacing = 250;
 		int xSpacing = 90;
+		
 		int count = array.length;
 
-		if (count == 0) {
-			c.drawString("You have no movies in " + name, 250, 215);
-		}
+		//Prints all non-null values 
+		for (int x = 0; x < count; x++) {
+			if (array [x] != null) {
+				c.drawString(array[x], xSpacing, ySpacing);
+				ySpacing += 50;
 
-		else {
-			for (int x = (page - 1) * 15; x < 15 + x; x++) {
-				if (array [x] != null) {
-					c.drawString(array[x], xSpacing, ySpacing);
-					ySpacing += 50;
+				//Spacing out a new column once 5 rows have printed
+				if (ySpacing == 500) {
+					ySpacing = 250;
+					xSpacing += 400;
+				}
+				
+				//Clearing the old values then displaying the next page once 3 columns have printed
+				if (xSpacing > 1050) {
+					c.drawString("Hit any key to go to the next page", 390, 550);
+					c.getChar();
 
-					if (ySpacing == 500) {
-						ySpacing = 250;
-						xSpacing += 450;
+					c.setColor(new Color(34, 58, 125));
+					c.fillRect(80, 200, width, height);
 
-					}
-
-					if (xSpacing > 1050) {
-
-						c.setColor(new Color(34, 58, 125));
-						c.fillRect(80, 200, width, height);
-
-						c.setColor(Color.WHITE);
-
-						ySpacing = 250;
-						xSpacing = 90;
-					}
+					c.setColor(Color.WHITE);
+					
+					//Resetting the x and y coordinates
+					ySpacing = 250;
+					xSpacing = 90;
 				}
 			}
 		}
+
 	}
-
-
+	
 	/**
-	 * This method will print all the non-null values of an array of ints
-	 * @param array -> the array to print
-	 * @param count -> the number of values of the array
+	 * This method will print all the non-null values of an array of strings (titles) 
+	 * and their corresponding ratings (stars) from an integer array, arranged in rows and columns.
+	 * @param watched -> The array of movie titles
+	 * @param ratings -> The array of ratings (stars to print)
 	 * @param c -> The Console object for drawing text
+	 * @param width -> Width of the console
+	 * @param height -> Height of the console
 	 */
+	
+	public static void printMoviesWithRatings(String[] watched, int[] ratings, Console c, int width, int height) {
+		c.setFont(new Font("SansSerif", Font.ITALIC, 25));
+		
+		//Initial x and y coordinates
+	    int yPoint = 255;   
+	    int xPoint = 90; 
+	    
+	    //Variable used to space out columns
+	    int spacing = 0; 
+	    
+	    //Prints all non-null titles and ratings
+	    for (int x = 0; x < watched.length; x++) {
+	        if (watched[x] != null) {
+	            
+	            c.setColor(Color.WHITE);  
+	            c.drawString(watched[x], xPoint, yPoint - 5);  
 
-	public static void printArrayInt(int[] array, int count, Console c) {
-		int yPoint = 255;
-		int spacing = 0;
+	            int rating = ratings[x];
+	            
+	            //Prints number of stars according to rating value
+	            for (int i = 0; i < rating; i++) {
+	                c.setColor(new Color(255, 249, 189));  
+	                int starX = xPoint + 15 * i; 
+	                int starY = yPoint;
+	                c.fillStar(starX, starY, 12, 12);  
+	            }
 
+	            yPoint += 50;
 
-		for (int x = 0; x < count; x++) {
-			int xPoint = 90;
-			int set = 90;
+	            //Marks when 5 rows are filled 
+	            if (yPoint > 455) {
+	                spacing++;
+	                yPoint = 255;  
+	            }
 
-			if (yPoint > 455) {
-				spacing ++;
-				yPoint = 255;
-			}
+	            //Spaces a new column
+	            if (spacing > 0) {
+	                xPoint = 90 + 400 * spacing;
+	            }
+	            
+	            //Clearing the old values then displaying the next page once 3 columns have printed
+	            if (xPoint > 890) {
+	                c.drawString("Hit any key to go to the next page", 390, 550);
+	                c.getChar();
+	             
+	                c.setColor(new Color(34, 58, 125));  
+	                c.fillRect(80, 200, width, height); 
 
-			if (spacing > 0) {
-				set = 90 + 450* spacing;
-			}
-
-			if (xPoint > 1050) {
-				spacing = 0;
-				yPoint = 255;
-				set = 90;
-			}
-
-			for (int counter = 0; counter < array[x]; counter ++) {
-
-				c.setColor(new Color(255, 249, 189));
-				xPoint = set + 15 * counter;	
-				c.fillStar(xPoint, yPoint, 12, 12);
-
-			}
-
-			yPoint += 50;
-		}
-
-
+	                c.setColor(Color.WHITE);  
+	                
+	                //Resetting the variables 
+	                yPoint = 255;  
+	                xPoint = 90;
+	                spacing = 0;
+	            }
+	        }
+	    }
 	}
-
-
+	
+	
+	
 	/**
 	 * This method will compare a string to see if it already exists in an array and modify the value if it is the same
 	 * @param array -> The array to compare to
@@ -403,8 +448,12 @@ public class MovieRoom {
 	 */
 
 	public static boolean compareString(String title, String[] array, Console c) {
+		
+		//Compares each value of both arrays
 		for (int x = 0; x < array.length; x++) {
 			if(array[x] != null && title.equalsIgnoreCase(array[x])) {
+				
+				//Reassigning value in the watchlist
 				array[x] = array[x] + "✓";
 				return true;
 			}
